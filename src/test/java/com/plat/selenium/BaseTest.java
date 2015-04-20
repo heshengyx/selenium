@@ -23,4 +23,21 @@ public abstract class BaseTest {
 		element.click();
 		return driver;
 	}
+	
+	public WebDriver getShiroLogin() {
+		WebDriver driver = new InternetExplorerDriver();
+
+		// 让浏览器访问 Baidu
+		driver.get("http://127.0.0.1:8080/login.jsp");
+		//password
+		// 通过 id 找到 input 的 DOM
+		WebElement element = driver.findElement(By.id("userName"));
+		element.sendKeys("admin");
+		element = driver.findElement(By.id("password"));
+		element.sendKeys("123456");
+		element = driver.findElement(By.id("submit"));
+		// 提交 input 所在的 form
+		element.click();
+		return driver;
+	}
 }
